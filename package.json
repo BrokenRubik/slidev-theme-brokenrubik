@@ -29,7 +29,10 @@
     "public",
     "setup",
     "styles",
+    "global-bottom.vue",
+    "uno.config.ts",
     "example.md",
+    "LICENSE",
     "README.md"
   ],
   "scripts": {
