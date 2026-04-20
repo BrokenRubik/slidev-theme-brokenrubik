@@ -1,0 +1,39 @@
+:root {
+  --br-primary: #9547FF;
+  --br-primary-soft: rgba(149, 71, 255, 0.12);
+  --br-primary-ring: rgba(149, 71, 255, 0.35);
+
+  --br-secondary: #DFF95F;
+  --br-secondary-soft: rgba(223, 249, 95, 0.08);
+  --br-secondary-ring: rgba(223, 249, 95, 0.3);
+
+  --br-accent: #FF707A;
+  --br-accent-soft: rgba(255, 112, 122, 0.08);
+  --br-accent-ring: rgba(255, 112, 122, 0.3);
+
+  --br-black: #000000;
+  /* Single surface for every slide — driven by themeConfig.surface, default softened from pure black. */
+  --br-surface: var(--slidev-theme-surface, #141414);
+  --br-surface-elev: var(--slidev-theme-surface-elev, #1a1a1a);
+  --br-border: #222222;
+  --br-muted: rgba(255, 255, 255, 0.55);
+  --br-faint: rgba(255, 255, 255, 0.08);
+
+  --slidev-theme-primary: var(--br-primary);
+  --slidev-theme-secondary: var(--br-secondary);
+  --slidev-theme-accent: var(--br-accent);
+}
+
+html.dark,
+.dark {
+  --slidev-code-background: #0a0a0a;
+  --slidev-code-foreground: #e6e6e6;
+}
+
+html:not(.dark) {
+  --br-surface: #ffffff;
+  --br-surface-elev: #fafafa;
+  --br-border: #e7e7e7;
+  --br-muted: rgba(0, 0, 0, 0.55);
+  --br-faint: rgba(0, 0, 0, 0.06);
+}

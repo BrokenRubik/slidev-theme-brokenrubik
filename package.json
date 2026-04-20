@@ -1,0 +1,87 @@
+{
+  "name": "@brokenrubik/slidev-theme-brokenrubik",
+  "version": "0.1.0",
+  "description": "Official BrokenRubik brand theme for Slidev — dark-first presentation theme with Aspekta typography, brand colors, and reusable layouts.",
+  "type": "module",
+  "license": "MIT",
+  "author": "BrokenRubik <hello@brokenrubik.co>",
+  "homepage": "https://brokenrubik.co",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/brokenrubik/slidev-theme-brokenrubik.git"
+  },
+  "keywords": [
+    "slidev-theme",
+    "slidev",
+    "brokenrubik",
+    "presentation",
+    "dark"
+  ],
+  "engines": {
+    "node": ">=20.12.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "components",
+    "layouts",
+    "public",
+    "setup",
+    "styles",
+    "example.md",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "slidev build example.md",
+    "dev": "slidev example.md --open",
+    "export": "slidev export example.md",
+    "screenshot": "slidev export example.md --format png"
+  },
+  "dependencies": {
+    "@slidev/types": "^52.14.2"
+  },
+  "devDependencies": {
+    "@slidev/cli": "^52.14.2",
+    "playwright-chromium": "^1.59.1"
+  },
+  "slidev": {
+    "colorSchema": "dark",
+    "highlighter": "shiki",
+    "aliases": {
+      "layouts": {
+        "cover": "./layouts/cover.vue",
+        "intro": "./layouts/intro.vue",
+        "section": "./layouts/section.vue",
+        "statement": "./layouts/statement.vue",
+        "fact": "./layouts/fact.vue",
+        "quote": "./layouts/quote.vue",
+        "end": "./layouts/end.vue",
+        "three-cols": "./layouts/three-cols.vue",
+        "three-cols-header": "./layouts/three-cols-header.vue"
+      }
+    },
+    "defaults": {
+      "titleTemplate": "%s — BrokenRubik",
+      "transition": "slide-left",
+      "favicon": "/favicon.ico",
+      "aspectRatio": "16/9",
+      "canvasWidth": 980,
+      "themeConfig": {
+        "primary": "#9547FF",
+        "secondary": "#DFF95F",
+        "accent": "#FF707A",
+        "surface": "#141414",
+        "surface-elev": "#1a1a1a"
+      },
+      "drawings": {
+        "persist": false
+      },
+      "fonts": {
+        "sans": "Aspekta",
+        "mono": "Fira Code",
+        "local": "Aspekta"
+      }
+    }
+  }
+}
