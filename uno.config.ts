@@ -1,28 +1,36 @@
 import { defineConfig } from 'unocss'
 
 /**
- * BrokenRubik brand tokens exposed as UnoCSS utility classes.
+ * BrokenRubik brand tokens as UnoCSS utility classes.
  *
- * Decks should never hard-code hex values — use these semantic classes:
- *   text-primary / text-secondary / text-accent
- *   bg-primary / bg-secondary / bg-accent
- *   border-primary / border-secondary / border-accent
- *   text-primary/40 (opacity modifier)
- *   bg-brand-surface / bg-brand-black / border-brand-border
+ * Brand colors are RGB-triplet CSS variables (`--br-primary-rgb` etc.), so:
+ *   - `text-primary`, `bg-secondary`, `border-accent` always match the current color scheme
+ *   - opacity modifiers work: `bg-primary/20`, `text-accent/70`, `border-secondary/40`
+ *   - they automatically flip to readable darker shades in light mode
+ *
+ * Reach for `*-vivid` variants when you explicitly want the full-saturation hue
+ * regardless of mode — e.g. a brand-fill CTA on a colored surface.
  */
 export default defineConfig({
   theme: {
     colors: {
-      primary: 'rgb(149 71 255 / <alpha-value>)',
-      secondary: 'rgb(223 249 95 / <alpha-value>)',
-      accent: 'rgb(255 112 122 / <alpha-value>)',
+      primary: 'rgb(var(--br-primary-rgb) / <alpha-value>)',
+      secondary: 'rgb(var(--br-secondary-rgb) / <alpha-value>)',
+      accent: 'rgb(var(--br-accent-rgb) / <alpha-value>)',
+
+      'primary-vivid': 'rgb(149 71 255 / <alpha-value>)',
+      'secondary-vivid': 'rgb(223 249 95 / <alpha-value>)',
+      'accent-vivid': 'rgb(255 112 122 / <alpha-value>)',
+
       brand: {
         black: '#000000',
-        surface: '#0a0a0a',
-        'surface-elev': '#141414',
-        border: '#222222',
-        muted: 'rgba(255, 255, 255, 0.55)',
-        faint: 'rgba(255, 255, 255, 0.08)',
+        surface: 'var(--br-surface)',
+        'surface-elev': 'var(--br-surface-elev)',
+        border: 'var(--br-border)',
+        muted: 'var(--br-muted)',
+        faint: 'var(--br-faint)',
+        fg: 'var(--br-fg)',
+        heading: 'var(--br-fg-heading)',
       },
     },
   },
@@ -33,7 +41,4 @@ export default defineConfig({
     'br-ring-secondary': 'ring-1 ring-secondary/30 bg-secondary/8',
     'br-ring-accent': 'ring-1 ring-accent/30 bg-accent/8',
   },
-  rules: [
-    ['selection-brand', { '--tw-prose-selection': 'rgb(223 249 95)' }],
-  ],
 })

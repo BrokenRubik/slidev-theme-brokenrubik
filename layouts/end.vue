@@ -14,7 +14,7 @@ withDefaults(
   <div class="slidev-layout end">
     <div class="max-w-4xl mx-auto flex flex-col items-center">
       <slot />
-      <BRLogo v-if="logo" variant="light" class="h-8 mt-12 mb-3" />
+      <BRLogo v-if="logo" variant="auto" class="h-8 mt-12 mb-3" />
       <a
         v-if="url"
         :href="url"

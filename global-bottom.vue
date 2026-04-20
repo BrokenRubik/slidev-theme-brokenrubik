@@ -31,6 +31,7 @@ const hiddenOn = ['cover', 'end']
 
 html:not(.dark) .br-watermark {
   content: url('/images/br-dark-logo.svg');
+  opacity: 0.35;
 }
 
 @media print {

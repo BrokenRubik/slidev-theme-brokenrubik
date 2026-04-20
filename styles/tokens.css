@@ -1,39 +1,66 @@
 :root {
-  --br-primary: #9547FF;
-  --br-primary-soft: rgba(149, 71, 255, 0.12);
-  --br-primary-ring: rgba(149, 71, 255, 0.35);
+  /* Brand colors as RGB triplets — UnoCSS consumes these with <alpha-value>,
+     so `bg-primary/20`, `text-secondary`, `border-accent` all work AND flip with the color scheme. */
+  --br-primary-rgb: 149 71 255;
+  --br-secondary-rgb: 223 249 95;
+  --br-accent-rgb: 255 112 122;
 
-  --br-secondary: #DFF95F;
-  --br-secondary-soft: rgba(223, 249, 95, 0.08);
-  --br-secondary-ring: rgba(223, 249, 95, 0.3);
+  --br-primary: rgb(var(--br-primary-rgb));
+  --br-secondary: rgb(var(--br-secondary-rgb));
+  --br-accent: rgb(var(--br-accent-rgb));
 
-  --br-accent: #FF707A;
-  --br-accent-soft: rgba(255, 112, 122, 0.08);
-  --br-accent-ring: rgba(255, 112, 122, 0.3);
+  --br-primary-soft: rgb(var(--br-primary-rgb) / 0.12);
+  --br-primary-ring: rgb(var(--br-primary-rgb) / 0.35);
+  --br-secondary-soft: rgb(var(--br-secondary-rgb) / 0.08);
+  --br-secondary-ring: rgb(var(--br-secondary-rgb) / 0.3);
+  --br-accent-soft: rgb(var(--br-accent-rgb) / 0.08);
+  --br-accent-ring: rgb(var(--br-accent-rgb) / 0.3);
 
   --br-black: #000000;
-  /* Single surface for every slide — driven by themeConfig.surface, default softened from pure black. */
+
+  /* Surface + foreground — flip in html:not(.dark) block. */
   --br-surface: var(--slidev-theme-surface, #141414);
   --br-surface-elev: var(--slidev-theme-surface-elev, #1a1a1a);
   --br-border: #222222;
   --br-muted: rgba(255, 255, 255, 0.55);
   --br-faint: rgba(255, 255, 255, 0.08);
 
+  --br-fg: #e6e6e6;
+  --br-fg-heading: #ffffff;
+  --br-fg-subtle: rgba(255, 255, 255, 0.75);
+
+  /* Fixed contrast-on-brand — always readable on solid brand backgrounds. */
+  --br-on-primary: #ffffff;
+  --br-on-secondary: #000000;
+  --br-on-accent: #000000;
+
   --slidev-theme-primary: var(--br-primary);
   --slidev-theme-secondary: var(--br-secondary);
   --slidev-theme-accent: var(--br-accent);
 }
 
-html.dark,
-.dark {
+html.dark, .dark {
   --slidev-code-background: #0a0a0a;
   --slidev-code-foreground: #e6e6e6;
 }
 
 html:not(.dark) {
-  --br-surface: #ffffff;
-  --br-surface-elev: #fafafa;
-  --br-border: #e7e7e7;
+  --br-surface: var(--slidev-theme-surface-light, #ffffff);
+  --br-surface-elev: var(--slidev-theme-surface-elev-light, #f5f5f5);
+  --br-border: #e5e5e5;
   --br-muted: rgba(0, 0, 0, 0.55);
-  --br-faint: rgba(0, 0, 0, 0.06);
+  --br-faint: rgba(0, 0, 0, 0.05);
+
+  --br-fg: #1a1a1a;
+  --br-fg-heading: #0a0a0a;
+  --br-fg-subtle: rgba(0, 0, 0, 0.75);
+
+  /* Brand colors darken for readability on light surfaces. The full-saturation
+     hues stay available via `bg-primary-vivid` / etc. for solid-fill CTAs. */
+  --br-primary-rgb: 122 50 230;
+  --br-secondary-rgb: 107 128 0;
+  --br-accent-rgb: 201 67 77;
+
+  --slidev-code-background: #f5f5f5;
+  --slidev-code-foreground: #1a1a1a;
 }

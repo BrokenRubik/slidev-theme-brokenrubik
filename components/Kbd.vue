@@ -14,8 +14,8 @@
   font-size: 0.8em;
   font-weight: 500;
   line-height: 1.4;
-  color: #fff;
+  color: var(--br-fg-heading);
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
 }
-html:not(.dark) .br-kbd { color: #111; box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08); }
+html:not(.dark) .br-kbd { box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08); }
 </style>

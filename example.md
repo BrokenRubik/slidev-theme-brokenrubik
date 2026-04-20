@@ -546,10 +546,10 @@ Works inline too — NetSuite <Pill color="secondary">2024.1+</Pill> adds workbo
 <div class="grid grid-cols-3 gap-3 mt-6">
   <Tool name="Celigo" note="Native SuiteQL + JDBC" logo="https://www.celigo.com/favicon.ico" href="https://www.celigo.com" />
   <Tool name="Workato" note="Execute SuiteQL action" logo="https://www.workato.com/favicon.ico" href="https://www.workato.com" />
-  <Tool name="n8n" note="Community nodes" logo="https://api.iconify.design/simple-icons/n8n.svg?color=white" href="https://n8n.io" />
-  <Tool name="Power BI" note="Via ODBC connector" logo="https://api.iconify.design/simple-icons/powerbi.svg?color=white" />
-  <Tool name="Tableau" note="Via ODBC connector" logo="https://api.iconify.design/simple-icons/tableau.svg?color=white" />
-  <Tool name="Postman" note="Official collection" logo="https://api.iconify.design/simple-icons/postman.svg?color=white" />
+  <Tool name="n8n" note="Community nodes" logo="https://n8n.io/favicon.ico" href="https://n8n.io" />
+  <Tool name="Power BI" note="Via ODBC connector" logo="https://learn.microsoft.com/favicon.ico" />
+  <Tool name="Tableau" note="Via ODBC connector" logo="https://www.tableau.com/favicon.ico" />
+  <Tool name="Postman" note="Official collection" logo="https://www.postman.com/favicon.ico" />
 </div>
 
 <div class="mt-4 text-sm text-brand-muted">

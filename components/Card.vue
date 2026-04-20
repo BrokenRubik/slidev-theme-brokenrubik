@@ -25,7 +25,7 @@ withDefaults(
   font-weight: 600;
   font-size: 1.05rem;
   margin-bottom: 0.6rem;
-  color: #fff;
+  color: var(--br-fg-heading);
 }
 .br-card-primary {
   background-color: var(--br-primary-soft);
@@ -46,6 +46,4 @@ withDefaults(
   background-color: var(--br-faint);
   border: 1px solid var(--br-border);
 }
-html:not(.dark) .br-card-muted { color: #1a1a1a; }
-html:not(.dark) .br-card .br-card-title { color: #111; }
 </style>

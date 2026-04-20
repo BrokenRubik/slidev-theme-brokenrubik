@@ -8,13 +8,16 @@ const props = withDefaults(
     /** Force the media type. Defaults to auto-detect from extension. */
     type?: 'auto' | 'image' | 'video'
     /**
-     * Darkening overlay for text readability.
-     * - `true` (default) → 55% black
+     * Readability overlay.
+     * - `true` (default) → auto: black scrim in dark mode, white scrim in light mode (~55% alpha)
      * - `false` → no overlay
-     * - number (0–1) → custom opacity
+     * - number (0–1) → custom opacity, color still flips by mode
      */
     overlay?: boolean | number
-    /** Overlay color. Defaults to pure black. */
+    /**
+     * Overlay color. Defaults to `'auto'` which flips: black in dark mode, white in light mode.
+     * Pass an explicit CSS color (e.g. `'#9547FF'`) to lock one color.
+     */
     overlayColor?: string
     /** Poster image shown while a video loads. */
     poster?: string
@@ -26,7 +29,7 @@ const props = withDefaults(
   {
     type: 'auto',
     overlay: true,
-    overlayColor: '#000',
+    overlayColor: 'auto',
     fit: 'cover',
     z: 0,
   },
@@ -43,6 +46,10 @@ const overlayAlpha = computed(() => {
   const n = Number(props.overlay)
   return Number.isFinite(n) ? Math.max(0, Math.min(1, n)) : 0.55
 })
+
+const resolvedOverlayColor = computed(() =>
+  props.overlayColor === 'auto' ? 'var(--br-surface)' : props.overlayColor,
+)
 </script>
 
 <template>
@@ -70,12 +77,20 @@ const overlayAlpha = computed(() => {
     <div
       v-if="overlayAlpha > 0"
       class="br-bg-overlay"
-      :style="{ background: overlayColor, opacity: overlayAlpha }"
+      :style="{ background: resolvedOverlayColor, opacity: overlayAlpha }"
     />
   </div>
 </template>
 
 <style scoped>
+.br-bg,
+.br-bg-media,
+.br-bg-overlay {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
 .br-bg {
   position: absolute;
   inset: 0;
@@ -91,6 +106,8 @@ const overlayAlpha = computed(() => {
 }
 .br-bg-overlay {
   position: absolute;
-  inset: 0;
+  /* Extend 1px past every edge — prevents subpixel gaps where the media
+     and overlay rasterize differently. The parent's overflow:hidden clips. */
+  inset: -1px;
 }
 </style>

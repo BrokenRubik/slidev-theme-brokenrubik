@@ -5,31 +5,21 @@
 }
 
 .slidev-layout pre {
-  border: 1px solid var(--br-border) !important;
-  border-radius: 6px !important;
-  padding: 1em 1.25em !important;
-  background-color: var(--br-surface-elev) !important;
+  border: 1px solid var(--br-border);
+  border-radius: 6px;
+  padding: 1em 1.25em;
   font-size: 0.9em;
   line-height: 1.55;
-}
-
-html:not(.dark) .slidev-layout pre {
-  background-color: #0a0a0a !important;
-  color: #e6e6e6;
+  /* Shiki applies its own background via the active theme — don't override. */
 }
 
 .slidev-layout :not(pre) > code {
-  background-color: var(--br-primary-soft) !important;
-  color: var(--br-secondary) !important;
+  background-color: var(--br-primary-soft);
+  color: var(--br-primary);
   border-radius: 3px;
   padding: 0.15em 0.4em;
   font-size: 0.88em;
   font-weight: 500;
-}
-
-html:not(.dark) .slidev-layout :not(pre) > code {
-  color: var(--br-primary) !important;
-  background-color: rgba(149, 71, 255, 0.08) !important;
 }
 
 .slidev-layout .line-numbers {

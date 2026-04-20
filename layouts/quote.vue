@@ -83,7 +83,7 @@ withDefaults(
   font-size: 2rem;
   line-height: 1.35;
   font-weight: 500;
-  color: #ffffff;
+  color: var(--br-fg-heading);
   letter-spacing: -0.005em;
 }
 
@@ -110,7 +110,7 @@ withDefaults(
 }
 
 .br-quote-author {
-  color: #ffffff;
+  color: var(--br-fg-heading);
   font-weight: 600;
 }
 

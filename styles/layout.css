@@ -22,7 +22,7 @@
 
 .slidev-layout {
   background-color: var(--br-surface);
-  color: #e6e6e6;
+  color: var(--br-fg);
   font-feature-settings: 'ss01', 'cv11';
   position: relative;
   /* Allow <BRBackground> to paint behind the slot content. */
@@ -33,7 +33,7 @@
   h3,
   h4,
   h5 {
-    color: #ffffff;
+    color: var(--br-fg-heading);
     letter-spacing: -0.02em;
     font-weight: 700;
   }
@@ -61,7 +61,7 @@
   }
 
   strong {
-    color: #ffffff;
+    color: var(--br-fg-heading);
     font-weight: 600;
   }
 
@@ -87,7 +87,7 @@
 
   th {
     background-color: var(--br-primary-soft);
-    color: var(--br-secondary);
+    color: var(--br-primary);
     font-weight: 600;
     border-bottom: 2px solid var(--br-primary) !important;
     text-align: left;
@@ -106,23 +106,7 @@
     background: var(--br-primary-soft);
     padding: 0.75em 1.25em;
     border-radius: 6px;
-    color: #e6e6e6;
-  }
-}
-
-html:not(.dark) .slidev-layout {
-  color: #1a1a1a;
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5 {
-    color: #111;
-  }
-
-  strong {
-    color: #111;
+    color: var(--br-fg);
   }
 }
 
@@ -132,7 +116,7 @@ html:not(.dark) .slidev-layout {
   background: var(--br-surface);
 
   h1 {
-    color: #ffffff;
+    color: var(--br-fg-heading);
     font-size: 4.25em;
     line-height: 1.05;
     font-weight: 700;
@@ -160,6 +144,14 @@ html:not(.dark) .slidev-layout {
   }
 }
 
+/* In light mode, the lime secondary is illegible — use primary instead for section/statement/end. */
+html:not(.dark) .slidev-layout.section h1,
+html:not(.dark) .slidev-layout.statement h1,
+html:not(.dark) .slidev-layout.fact h1,
+html:not(.dark) .slidev-layout.end h1 {
+  color: var(--br-primary);
+}
+
 .slidev-layout.fact {
   background: var(--br-surface);
   display: grid;
@@ -185,7 +177,7 @@ html:not(.dark) .slidev-layout {
   h1 {
     font-size: 2.5em;
     font-weight: 500;
-    color: #fff;
+    color: var(--br-fg-heading);
     font-style: normal;
     line-height: 1.3;
   }
@@ -217,3 +209,4 @@ html:not(.dark) .slidev-layout {
   background: var(--br-secondary);
   color: var(--br-black);
 }
+

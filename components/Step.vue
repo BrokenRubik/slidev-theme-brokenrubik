@@ -35,7 +35,7 @@ withDefaults(
   justify-content: center;
   font-weight: 700;
   font-size: 0.85rem;
-  color: #000;
+  color: var(--br-on-secondary);
   flex-shrink: 0;
 }
 .br-step-primary { background: var(--br-primary); box-shadow: 0 0 12px var(--br-primary-ring); }

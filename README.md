@@ -39,7 +39,7 @@ The theme sets these on your behalf. Override any of them in headmatter if a spe
 
 | Key            | Default                 | Purpose                                 |
 | -------------- | ----------------------- | --------------------------------------- |
-| `colorSchema`  | `dark`                  | Dark-first; light mode still works.     |
+| `colorSchema`  | `both`                  | Dark and light both ship; press `D` to toggle. Set to `dark` or `light` to lock. |
 | `transition`   | `slide-left`            | House motion.                           |
 | `titleTemplate`| `%s — BrokenRubik`      | Branded browser tab.                    |
 | `favicon`      | `/favicon.ico`          | BR favicon shipped with the theme.      |
@@ -552,6 +552,16 @@ var(--br-border)         var(--br-muted)            var(--br-faint)
 - **In Markdown or HTML in slides** → utility classes (`bg-primary/20`, `text-secondary`).
 - **In a Vue component's scoped style** → `var(--br-*)`.
 - **Never** → `text-[#9547FF]` or `background: #DFF95F`.
+
+### Dark ↔ light theme
+
+The theme ships both; Slidev's `D` shortcut toggles at runtime.
+
+- Brand colors are defined as RGB triplets (`--br-primary-rgb` etc.) that flip between dark-mode and light-mode values. `text-primary`, `bg-secondary`, `border-accent`, and every `var(--br-primary)` use automatically follow — no per-component override required.
+- In light mode, brand colors darken slightly so white text on a colored pill stays readable and lime/coral marks don't vanish on white (#DFF95F lime becomes #6B8000 olive, #FF707A coral becomes #C9434D rose).
+- Surfaces, borders, muted text, and heading fg all flip too (`--br-surface`, `--br-border`, `--br-fg`, `--br-fg-heading`).
+- BR logos auto-swap — `<BRLogo variant="auto">` and the bottom-right watermark render the light logo on dark surfaces, the dark logo on light ones. `variant="light"` / `variant="dark"` overrides if you need a fixed one.
+- Need the full-saturation brand hue on a light surface (rare — big display fills only)? Use `bg-primary-vivid`, `text-secondary-vivid`, `border-accent-vivid`.
 
 ## Fonts
 

@@ -73,10 +73,9 @@ const showLogo = computed(() => !!props.logo && !logoError.value)
 }
 .br-tool-name {
   font-weight: 600;
-  color: #fff;
+  color: var(--br-fg-heading);
   line-height: 1.2;
 }
-html:not(.dark) .br-tool-name { color: #111; }
 .br-tool-note {
   font-size: 0.75rem;
   color: var(--br-muted);
