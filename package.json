@@ -1,6 +1,6 @@
 {
   "name": "@brokenrubik/slidev-theme-brokenrubik",
-  "version": "0.1.1",
+  "version": "0.1.3",
   "description": "Official BrokenRubik brand theme for Slidev — dark-first presentation theme with Aspekta typography, brand colors, and reusable layouts.",
   "type": "module",
   "license": "MIT",

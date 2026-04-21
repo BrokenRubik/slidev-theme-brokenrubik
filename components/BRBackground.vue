@@ -40,6 +40,20 @@ const kind = computed<'image' | 'video'>(() => {
   return /\.(mp4|webm|mov|ogv|m4v)(\?|#|$)/i.test(props.src) ? 'video' : 'image'
 })
 
+// Resolve root-absolute paths (e.g. `/videos/bg.mp4`) against Vite's BASE_URL
+// so backgrounds work when the deck is deployed under a sub-path like GitHub Pages.
+function withBase(path: string | undefined) {
+  if (!path) return path
+  if (/^(https?:|data:|blob:)/i.test(path)) return path
+  if (!path.startsWith('/')) return path
+  const base = import.meta.env.BASE_URL || '/'
+  if (base === '/' || path.startsWith(base)) return path
+  return base.replace(/\/$/, '') + path
+}
+
+const resolvedSrc = computed(() => withBase(props.src))
+const resolvedPoster = computed(() => withBase(props.poster))
+
 const overlayAlpha = computed(() => {
   if (props.overlay === false) return 0
   if (props.overlay === true) return 0.55
@@ -56,8 +70,8 @@ const resolvedOverlayColor = computed(() =>
   <div class="br-bg" :style="{ zIndex: z }">
     <video
       v-if="kind === 'video'"
-      :src="src"
-      :poster="poster"
+      :src="resolvedSrc"
+      :poster="resolvedPoster"
       autoplay
       muted
       loop
@@ -68,7 +82,7 @@ const resolvedOverlayColor = computed(() =>
     />
     <img
       v-else
-      :src="src"
+      :src="resolvedSrc"
       alt=""
       aria-hidden="true"
       class="br-bg-media"
