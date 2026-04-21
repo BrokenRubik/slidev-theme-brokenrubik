@@ -5,7 +5,7 @@ info: |
   BrokenRubik brand theme for Slidev. Dark-first, Aspekta type, three brand colors.
 class: text-left
 layout: cover
-background: /videos/bg-video.mp4
+background: /theme/videos/bg-video.mp4
 overlay: 0.65
 ---
 

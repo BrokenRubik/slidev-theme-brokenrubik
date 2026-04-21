@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useNav } from '@slidev/client'
+import lightLogo from './public/images/br-light-logo.svg'
 
 const { currentLayout } = useNav()
 
@@ -9,7 +10,7 @@ const hiddenOn = ['cover', 'end']
 <template>
   <img
     v-if="!hiddenOn.includes(currentLayout)"
-    src="/images/br-light-logo.svg"
+    :src="lightLogo"
     alt=""
     aria-hidden="true"
     class="br-watermark"
@@ -29,14 +30,9 @@ const hiddenOn = ['cover', 'end']
   z-index: 1;
 }
 
+/* Light mode swaps the logo and bumps contrast. Relative path so Vite resolves at build. */
 html:not(.dark) .br-watermark {
-  content: url('/images/br-dark-logo.svg');
+  content: url('./public/images/br-dark-logo.svg');
   opacity: 0.35;
-}
-
-@media print {
-  .br-watermark {
-    opacity: 0.15;
-  }
 }
 </style>

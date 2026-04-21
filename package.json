@@ -67,7 +67,7 @@
     "defaults": {
       "titleTemplate": "%s — BrokenRubik",
       "transition": "slide-left",
-      "favicon": "/favicon.ico",
+      "favicon": "/theme/favicon.ico",
       "aspectRatio": "16/9",
       "canvasWidth": 980,
       "themeConfig": {

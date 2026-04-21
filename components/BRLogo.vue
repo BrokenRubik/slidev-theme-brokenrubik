@@ -1,5 +1,8 @@
 <script setup lang="ts">
-withDefaults(
+import lightLogo from '../public/images/br-light-logo.svg'
+import darkLogo from '../public/images/br-dark-logo.svg'
+
+const props = withDefaults(
   defineProps<{
     /** 'auto' swaps based on color scheme. 'light' = white fill, 'dark' = black fill. */
     variant?: 'light' | 'dark' | 'auto'
@@ -10,7 +13,7 @@ withDefaults(
 
 <template>
   <img
-    :src="variant === 'dark' ? '/images/br-dark-logo.svg' : '/images/br-light-logo.svg'"
+    :src="variant === 'dark' ? darkLogo : lightLogo"
     :class="['br-logo', `br-logo-${variant}`]"
     alt="BrokenRubik"
   />
@@ -21,7 +24,7 @@ withDefaults(
   display: inline-block;
   width: auto;
 }
-/* Auto mode — CSS replaces the image based on theme. */
-.br-logo-auto { content: url('/images/br-light-logo.svg'); }
-html:not(.dark) .br-logo-auto { content: url('/images/br-dark-logo.svg'); }
+/* Auto mode — CSS swaps based on theme. Relative paths so Vite processes them at build time. */
+.br-logo-auto { content: url('../public/images/br-light-logo.svg'); }
+html:not(.dark) .br-logo-auto { content: url('../public/images/br-dark-logo.svg'); }
 </style>

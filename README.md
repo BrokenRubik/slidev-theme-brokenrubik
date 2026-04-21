@@ -479,7 +479,7 @@ Drop behind any slide's content. Auto-detects video vs image from the file exten
 
 ```md
 <!-- Video (autoplay, muted, loop, playsinline) -->
-<BRBackground src="/videos/bg-video.mp4" :overlay="0.65" />
+<BRBackground src="/theme/videos/bg-video.mp4" :overlay="0.65" />
 
 <!-- Image, no overlay -->
 <BRBackground src="/images/hero.jpg" :overlay="false" />
@@ -606,7 +606,14 @@ A faint BrokenRubik logo sits in the bottom-right corner of every content slide 
 - `/videos/bg-video.mp4` — BR isometric-cubes background (used by the cover demo)
 - `/favicon.ico` — the BrokenRubik favicon
 
-Reference any of these via an absolute path (e.g. `src="/images/br-light-logo.svg"`) in your deck.
+Reference any of these via the `/theme/` prefix from inside a deck (Slidev copies a theme's `public/*` under `/theme/` when the theme is installed from npm):
+
+```md
+<img src="/theme/images/br-light-logo.svg" />
+<BRBackground src="/theme/videos/bg-video.mp4" />
+```
+
+For **your own** deck assets (a custom hero image, product screenshot, etc.), drop them in your project's `/public/` and reference them at their normal absolute path (`/my-image.jpg`).
 
 ## Local development
 
