@@ -6,3 +6,7 @@ dist
 .remote-assets
 .idea/
 components.d.ts
+
+# Claude Code local files (personal, do not commit)
+**/.claude/settings.local.json
+CLAUDE.local.md
